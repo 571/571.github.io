@@ -3,218 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QINYUN | Backend Software Engineer</title>
+    <title>QINYUN | System Architect & Backend Explorer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        .font-serif-sc { font-family: 'Noto Serif SC', serif; }
-        .font-sans-sc { font-family: 'Noto Sans SC', sans-serif; }
-        
-        /* 杂志感首字放大 */
-        .drop-cap::first-letter {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 3.5rem;
-            float: left;
-            line-height: 0.8;
-            margin-right: 0.8rem;
-            color: #C75146;
-            font-weight: 700;
+        :root {
+            --primary: #00FF9C; /* 极客绿 */
+            --bg-dark: #0A0A0B;
+            --accent: #FF3E00; /* 警告红 */
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-mono { font-family: 'Fira Code', monospace; }
+
+        /* 动态背景扫描线 */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 99;
+            background: linear-gradient(0deg, rgba(0, 255, 156, 0) 0%, rgba(0, 255, 156, 0.1) 50%, rgba(0, 255, 156, 0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            bottom: 100%;
+            animation: scan 8s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+
+        /* 终端打字机效果 */
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* 玻璃拟态卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 156, 0.2);
+            transform: translateY(-5px);
         }
 
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             margin: auto;
-            height: 300px;
+            height: 350px;
         }
 
-        /* 平滑滚动 */
-        html { scroll-behavior: smooth; }
-
-        /* 自定义滚动条 */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f3f4f6; }
-        ::-webkit-scrollbar-thumb { background: #C75146; border-radius: 3px; }
+        /* 滚动条 */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); }
     </style>
 </head>
-<body class="bg-[#F9F7F2] text-[#2D2D2D] font-sans-sc antialiased">
+<body class="antialiased">
+    <div class="scanline"></div>
 
-    <!-- 顶部导航 -->
-    <nav class="fixed top-0 w-full z-50 bg-[#F9F7F2]/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
-            <div class="font-serif-sc font-bold text-2xl tracking-tighter">QINYUN.</div>
-            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest">
-                <a href="#about" class="hover:text-[#C75146] transition-colors">About</a>
-                <a href="#skills" class="hover:text-[#C75146] transition-colors">Expertise</a>
-                <a href="#projects" class="hover:text-[#C75146] transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-[#C75146] transition-colors">Contact</a>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex justify-between items-center font-mono">
+            <div class="flex items-center space-x-2">
+                <span class="text-[var(--primary)] font-bold">root@qinyun:~#</span>
+                <span class="animate-pulse w-2 h-4 bg-[var(--primary)]"></span>
             </div>
-            <button class="md:hidden text-xl" onclick="toggleMenu()">&#9776;</button>
-        </div>
-        <div id="mobile-menu" class="hidden bg-white w-full p-6 border-b border-gray-200">
-            <div class="flex flex-col space-y-4 font-bold text-sm uppercase">
-                <a href="#about" onclick="toggleMenu()">About</a>
-                <a href="#skills" onclick="toggleMenu()">Expertise</a>
-                <a href="#projects" onclick="toggleMenu()">Projects</a>
-                <a href="#contact" onclick="toggleMenu()">Contact</a>
+            <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em]">
+                <a href="#about" class="hover:text-[var(--primary)] transition-colors">/Whoami</a>
+                <a href="#skills" class="hover:text-[var(--primary)] transition-colors">/Core_Dump</a>
+                <a href="#projects" class="hover:text-[var(--primary)] transition-colors">/Repositories</a>
+                <a href="#contact" class="hover:text-[var(--primary)] transition-colors">/Ping</a>
             </div>
         </div>
     </nav>
 
-    <!-- 主视觉区 -->
-    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-16">
-        <div class="mb-6 px-4 py-1 border border-[#2D2D2D] text-[10px] font-bold tracking-[0.3em] uppercase">Scalable Systems & Backend Architecture</div>
-        <h1 class="font-serif-sc text-6xl md:text-9xl font-bold mb-6 leading-none">
-            QINYUN <span class="text-[#C75146] italic">WANG</span>
-        </h1>
-        <p class="max-w-xl text-lg text-gray-500 leading-relaxed font-serif-sc italic">
-            "Orchestrating robust infrastructures and designing efficient distributed systems."
-        </p>
-        <div class="mt-12 animate-bounce text-xl text-[#C75146] cursor-pointer" onclick="document.getElementById('about').scrollIntoView()">
-            &#8595;
+    <!-- Hero Section: Terminal Style -->
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(var(--primary) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="max-w-4xl w-full z-10">
+            <div class="glass-card rounded-t-lg border-b-0 p-3 flex space-x-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-[10px] font-mono text-gray-500 ml-4">ssh qinyun@remote_server -p 22</span>
+            </div>
+            <div class="glass-card rounded-b-lg p-8 font-mono border-t-0 bg-black/80">
+                <p class="text-[var(--primary)] mb-2">$ systemctl status profile.service</p>
+                <p class="text-white text-4xl md:text-7xl font-black mb-6">QINYUN WANG</p>
+                <div class="space-y-2 text-sm md:text-base text-gray-400">
+                    <p>> <span class="text-white">Role:</span> Senior Backend Software Engineer</p>
+                    <p>> <span class="text-white">Focus:</span> Distributed Systems / Infrastructure / K8s</p>
+                    <p>> <span class="text-white">Location:</span> Santa Clara, CA [37.3541° N, 121.9552° W]</p>
+                    <p>> <span class="text-[var(--primary)] typing" id="terminal-text"></span></p>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 space-y-32 mb-32">
+    <main class="max-w-7xl mx-auto px-6 space-y-48 pb-32">
 
-        <!-- About Section -->
+        <!-- Whoami Section -->
         <section id="about" class="scroll-mt-24">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-                <div class="md:col-span-4">
-                    <div class="aspect-[3/4] bg-gray-200 relative group overflow-hidden border border-gray-100">
-                        <img src="./avatar.jpeg" alt="QINYUN's Avatar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden absolute inset-0 items-center justify-center">
-                            <span class="text-gray-400 font-serif-sc italic">[Backend Specialist]</span>
-                        </div>
-                        <div class="absolute inset-0 border-8 border-white/20 pointer-events-none"></div>
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/3 group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[var(--primary)] to-blue-500 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
+                    <div class="relative bg-black rounded-lg overflow-hidden border border-white/10">
+                        <img src="./avatar.jpeg" alt="Qinyun" class="w-full grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="mt-4 font-mono text-[10px] text-center text-gray-500">
+                        LATENCY: 14ms | UPTIME: 29.5Y
                     </div>
                 </div>
-                <div class="md:col-span-8 flex flex-col justify-center">
-                    <h2 class="font-serif-sc text-sm font-bold tracking-widest text-[#C75146] uppercase mb-4">Professional Narrative</h2>
-                    <div class="prose prose-lg text-gray-700">
-                        <p class="drop-cap font-serif-sc text-xl leading-loose mb-8">
-                            I am Qinyun, a Software Engineer specializing in backend infrastructure and distributed data warehouse solutions. With a Master's from University of Michigan, I currently focus on orchestrating enterprise-scale systems.
+                <div class="w-full md:w-2/3">
+                    <h2 class="font-mono text-[var(--primary)] text-xl mb-6">01. Whoami</h2>
+                    <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
+                        <p>
+                            Technologist by day, debugger by night. My world revolves around <span class="text-white">high-concurrency orchestration</span> and <span class="text-white">fault-tolerant architectures</span>.
                         </p>
-                        <p class="font-sans-sc font-light text-gray-600 mb-6">
-                            My expertise lies in managing massive workloads using Golang and Java within Kubernetes architectures. At Cloudera, I bridge the gap between complex data products like Hive/Impala and cloud-native environments (AWS/Azure), ensuring seamless scalability and robust API integration.
+                        <p>
+                            Leveraging a Master's degree from the <span class="text-[var(--primary)]">University of Michigan</span>, I've spent years at <span class="text-[var(--primary)]">Cloudera</span> optimizing the nexus between big data (Hive/Impala) and cloud-native ecosystems. I don't just write code; I design systems that thrive under pressure.
                         </p>
+                        <div class="flex space-x-4 pt-4">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">GO</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">JAVA</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">K8S</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">DISTRIBUTED</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Expertise Section -->
+        <!-- Skill Spectrum -->
         <section id="skills" class="scroll-mt-24">
-            <div class="border-t border-gray-200 pt-12">
-                <div class="text-center mb-16">
-                    <h2 class="font-serif-sc text-4xl font-bold mb-4">Core Competencies</h2>
-                    <p class="text-gray-400 font-mono text-xs uppercase tracking-tighter">Technical Stack Analysis</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <!-- Chart -->
-                    <div class="bg-white p-8 shadow-sm border border-gray-100 rounded-sm">
-                        <div class="chart-container">
-                            <canvas id="skillRadar"></canvas>
-                        </div>
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">02. Core_Dump</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 font-mono text-[8px] opacity-20">SYSTEM_HEALTH: 98%</div>
+                    <div class="chart-container">
+                        <canvas id="skillRadar"></canvas>
                     </div>
-                    <!-- Legend -->
-                    <div class="space-y-8">
-                        <div class="group cursor-default">
-                            <h3 class="font-serif-sc text-xl font-bold flex items-center">
-                                <span class="w-2 h-2 bg-[#C75146] mr-3"></span>
-                                Distributed Systems
-                            </h3>
-                            <p class="text-sm text-gray-500 mt-2">Expertise in Hive, Impala, and MapReduce architectures. Skilled in building fault-tolerant Master-Worker clusters.</p>
-                        </div>
-                        <div class="group cursor-default">
-                            <h3 class="font-serif-sc text-xl font-bold flex items-center">
-                                <span class="w-2 h-2 bg-black mr-3"></span>
-                                Cloud Infrastructure
-                            </h3>
-                            <p class="text-sm text-gray-500 mt-2">Hands-on experience with K8s, Docker, AWS, and Azure. Building automated CI/CD pipelines via Jenkins.</p>
-                        </div>
-                        <div class="group cursor-default">
-                            <h3 class="font-serif-sc text-xl font-bold flex items-center">
-                                <span class="w-2 h-2 bg-gray-400 mr-3"></span>
-                                API & Backend Dev
-                            </h3>
-                            <p class="text-sm text-gray-500 mt-2">Designing RESTful APIs with Swagger/Java. Proficient in Golang for system-level orchestration.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 font-mono">
+                    <div class="glass-card p-6 border-l-4 border-l-[var(--primary)]">
+                        <div class="text-2xl font-bold mb-1 text-white">99.9%</div>
+                        <div class="text-[10px] text-gray-500 uppercase">SLA Target</div>
+                    </div>
+                    <div class="glass-card p-6 border-l-4 border-l-blue-500">
+                        <div class="text-2xl font-bold mb-1 text-white">400ms</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Avg Latency</div>
+                    </div>
+                    <div class="glass-card p-6 col-span-2">
+                        <h4 class="text-[var(--primary)] text-xs mb-4 uppercase tracking-widest">Tech Stack</h4>
+                        <div class="grid grid-cols-2 gap-y-3 text-[11px]">
+                            <div class="text-gray-400"># Cloud: <span class="text-white">AWS/Azure/K8s</span></div>
+                            <div class="text-gray-400"># DB: <span class="text-white">Hive/Impala/SQL</span></div>
+                            <div class="text-gray-400"># API: <span class="text-white">gRPC/REST/Swagger</span></div>
+                            <div class="text-gray-400"># CI/CD: <span class="text-white">Jenkins/Shell</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Repository (Projects) -->
         <section id="projects" class="scroll-mt-24">
-            <div class="border-t border-gray-200 pt-12">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                    <h2 class="font-serif-sc text-4xl font-bold">Key Initiatives</h2>
-                    <p class="text-gray-400 font-mono text-xs mb-1">Selected Technical Projects</p>
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">03. Repositories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- MapReduce -->
+                <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-[var(--primary)]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[var(--primary)] text-xs font-mono">MASTER-BRANCH</span>
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">OLAP Cluster</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">A multi-threaded fault-tolerant cluster server built from scratch. Features Master-Worker heartbeat mechanism and job distribution.</p>
+                    </div>
+                    <div class="font-mono text-[10px] text-blue-400">C++ / Multi-threaded</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-1 px-1 bg-gray-200">
-                    <!-- Project 1 -->
-                    <div class="bg-[#F9F7F2] p-10 group hover:bg-[#C75146] transition-all duration-500">
-                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">DISTRIBUTED COMPUTING</p>
-                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">MapReduce Server</h3>
-                        <p class="text-gray-600 group-hover:text-white/80 leading-relaxed mb-8">
-                            Implemented a multi-threaded server for user-submitted jobs. Features fault-handling Master modules and heartbeat-synced Workers.
-                        </p>
-                        <span class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white uppercase tracking-widest">C++ / Multi-threading</span>
+                <!-- CDW -->
+                <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-blue-500">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-blue-500 text-xs font-mono">PROD-DEPLOY</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">CDW Orchestrator</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Deploying Hive/Impala at scale. Automated upgrade testing and release management using Golang and Python.</p>
                     </div>
-                    <!-- Project 2 -->
-                    <div class="bg-[#F9F7F2] p-10 group hover:bg-[#2D2D2D] transition-all duration-500">
-                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">INFRASTRUCTURE</p>
-                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">CDP Public APIs</h3>
-                        <p class="text-gray-600 group-hover:text-white/80 leading-relaxed mb-8">
-                            Engineered Swagger specifications and implemented public Java APIs for Cloudera Data Platform, enabling CLI-based warehouse operations.
-                        </p>
-                        <span class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white uppercase tracking-widest">Java / REST / Swagger</span>
+                    <div class="font-mono text-[10px] text-blue-400">Golang / Kubernetes</div>
+                </div>
+
+                <!-- API -->
+                <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-purple-500">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-purple-500 text-xs font-mono">OPEN-API</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Public CDP APIs</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Swagger-first design for Cloudera's public interface. Enabling CLI-driven data warehouse operations via Java SDK.</p>
                     </div>
+                    <div class="font-mono text-[10px] text-blue-400">Java / REST / Swagger</div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-[#2D2D2D] text-white py-24 px-6 text-center">
-        <h2 class="font-serif-sc text-4xl md:text-5xl font-bold mb-8">Connect with Qinyun</h2>
-        <div class="w-12 h-px bg-[#C75146] mx-auto mb-12"></div>
-        <div class="flex flex-col space-y-4 mb-16">
-            <p class="text-gray-400 hover:text-[#C75146] transition-colors cursor-pointer text-xl font-serif-sc">qinyunw@umich.edu</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://github.com" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">GitHub</a>
-                <a href="https://linkedin.com" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">LinkedIn</a>
+    <!-- Ping Footer -->
+    <footer id="contact" class="border-t border-white/10 bg-black py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-mono text-[var(--primary)] mb-8">ping -c 4 qinyun.wang</h2>
+            <div class="glass-card p-8 rounded-lg inline-block text-left font-mono text-sm">
+                <p class="text-gray-500">64 bytes from 131-saratoga-ave: icmp_seq=1 ttl=64 time=0.042 ms</p>
+                <p class="text-gray-500">64 bytes from 131-saratoga-ave: icmp_seq=2 ttl=64 time=0.039 ms</p>
+                <p class="text-white mt-4">Connect with the architect:</p>
+                <div class="mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8">
+                    <a href="mailto:qinyunw@umich.edu" class="hover:text-[var(--primary)] transition-colors underline">qinyunw@umich.edu</a>
+                    <a href="https://github.com/571" class="hover:text-[var(--primary)] transition-colors underline" target="_blank">github.com/571</a>
+                    <a href="https://linkedin.com/in/qinyunw" class="hover:text-[var(--primary)] transition-colors underline" target="_blank">linkedin.com/in/qinyunw</a>
+                </div>
             </div>
+            <p class="mt-16 text-[10px] text-gray-700 font-mono">ESTABLISHING SECURE CONNECTION... VERIFIED BY RSA-4096</p>
         </div>
-        <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase">© 2026 QINYUN WANG. SANTA CLARA, CA.</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        // 打字机效果
+        const textArray = ["Initializing system kernel...", "Connecting to distributed nodes...", "Compiling backend logic...", "Ready for new challenges."];
+        let i = 0, j = 0, current = "", isDeleting = false;
+        
+        function type() {
+            const target = document.getElementById('terminal-text');
+            if (!target) return;
+            
+            if (i < textArray.length) {
+                if (!isDeleting && j <= textArray[i].length) {
+                    current = textArray[i].substring(0, j++);
+                } else if (isDeleting && j >= 0) {
+                    current = textArray[i].substring(0, j--);
+                }
+                
+                target.innerText = current;
+                
+                if (j === textArray[i].length + 1) {
+                    isDeleting = true;
+                    setTimeout(type, 2000);
+                } else if (isDeleting && j === -1) {
+                    isDeleting = false;
+                    i = (i + 1) % textArray.length;
+                    setTimeout(type, 500);
+                } else {
+                    setTimeout(type, isDeleting ? 50 : 100);
+                }
+            }
         }
 
-        let skillChart;
+        // 初始化能力雷达图
         function initRadar() {
             const ctx = document.getElementById('skillRadar').getContext('2d');
-            skillChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Distributed Sys', 'Golang/Java', 'Cloud Native', 'CI/CD', 'API Design', 'Algorithm'],
+                    labels: ['Distributed', 'Kubernetes', 'Golang', 'Java', 'API Design', 'System Design'],
                     datasets: [{
-                        label: 'Proficiency',
-                        data: [92, 95, 88, 85, 90, 80],
-                        backgroundColor: 'rgba(199, 81, 70, 0.2)',
-                        borderColor: '#C75146',
-                        borderWidth: 2,
-                        pointBackgroundColor: '#C75146',
+                        label: 'Internal Score',
+                        data: [95, 90, 92, 88, 85, 93],
+                        backgroundColor: 'rgba(0, 255, 156, 0.1)',
+                        borderColor: '#00FF9C',
+                        borderWidth: 1,
+                        pointBackgroundColor: '#00FF9C',
+                        pointBorderColor: '#000',
+                        pointRadius: 3
                     }]
                 },
                 options: {
@@ -222,12 +303,14 @@
                     maintainAspectRatio: false,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(0,0,0,0.05)' },
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            pointLabels: { font: { size: 11 }, color: '#666' },
+                            angleLines: { color: 'rgba(255,255,255,0.1)' },
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            pointLabels: { 
+                                font: { family: 'Fira Code', size: 10 },
+                                color: '#888'
+                            },
                             ticks: { display: false },
-                            suggestedMin: 0,
-                            suggestedMax: 100
+                            suggestedMin: 0
                         }
                     },
                     plugins: { legend: { display: false } }
@@ -236,8 +319,13 @@
         }
 
         window.onload = function() {
+            type();
             initRadar();
         };
+
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
