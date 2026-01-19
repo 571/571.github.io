@@ -86,6 +86,8 @@
             </div>
             <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em]">
                 <a href="#about" class="hover:text-[var(--primary)] transition-colors">/Whoami</a>
+                <a href="#experience" class="hover:text-[var(--primary)] transition-colors">/Stack_Trace</a>
+                <a href="#education" class="hover:text-[var(--primary)] transition-colors">/Academics</a>
                 <a href="#skills" class="hover:text-[var(--primary)] transition-colors">/Core_Dump</a>
                 <a href="#projects" class="hover:text-[var(--primary)] transition-colors">/Repositories</a>
                 <a href="#contact" class="hover:text-[var(--primary)] transition-colors">/Ping</a>
@@ -95,7 +97,6 @@
 
     <!-- Hero Section: Terminal Style -->
     <header class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
-        <!-- Background Grid -->
         <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(var(--primary) 1px, transparent 1px); background-size: 40px 40px;"></div>
         
         <div class="max-w-4xl w-full z-10">
@@ -107,10 +108,10 @@
             </div>
             <div class="glass-card rounded-b-lg p-8 font-mono border-t-0 bg-black/80">
                 <p class="text-[var(--primary)] mb-2">$ systemctl status profile.service</p>
-                <p class="text-white text-4xl md:text-7xl font-black mb-6">QINYUN WANG</p>
+                <p class="text-white text-4xl md:text-7xl font-black mb-6 uppercase">QINYUN WANG</p>
                 <div class="space-y-2 text-sm md:text-base text-gray-400">
                     <p>> <span class="text-white">Role:</span> Senior Backend Software Engineer</p>
-                    <p>> <span class="text-white">Focus:</span> Distributed Systems / Infrastructure / K8s</p>
+                    <p>> <span class="text-white">Focus:</span> Distributed Systems / Cloud Infrastructure</p>
                     <p>> <span class="text-white">Location:</span> Santa Clara, CA [37.3541° N, 121.9552° W]</p>
                     <p>> <span class="text-[var(--primary)] typing" id="terminal-text"></span></p>
                 </div>
@@ -128,33 +129,107 @@
                     <div class="relative bg-black rounded-lg overflow-hidden border border-white/10">
                         <img src="./avatar.jpeg" alt="Qinyun" class="w-full grayscale hover:grayscale-0 transition-all duration-500">
                     </div>
-                    <div class="mt-4 font-mono text-[10px] text-center text-gray-500">
-                        LATENCY: 14ms | UPTIME: 29.5Y
+                    <div class="mt-4 font-mono text-[10px] text-center text-gray-500 uppercase tracking-widest">
+                        Latency: 14ms | Status: Online
                     </div>
                 </div>
                 <div class="w-full md:w-2/3">
                     <h2 class="font-mono text-[var(--primary)] text-xl mb-6">01. Whoami</h2>
-                    <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
+                    <div class="space-y-6 text-gray-400 leading-relaxed text-lg font-light">
                         <p>
-                            Technologist by day, debugger by night. My world revolves around <span class="text-white">high-concurrency orchestration</span> and <span class="text-white">fault-tolerant architectures</span>.
+                            I architect systems where <span class="text-white">logic meets scale</span>. My passion lies in solving complex backend challenges, from fine-tuning distributed data warehouses to orchestrating cloud-native clusters.
                         </p>
                         <p>
-                            Leveraging a Master's degree from the <span class="text-[var(--primary)]">University of Michigan</span>, I've spent years at <span class="text-[var(--primary)]">Cloudera</span> optimizing the nexus between big data (Hive/Impala) and cloud-native ecosystems. I don't just write code; I design systems that thrive under pressure.
+                            Currently at <span class="text-[var(--primary)] font-bold">Cloudera</span>, I focus on building robust infrastructures that handle enterprise-level workloads across AWS and Azure. I thrive at the intersection of Golang system programming and Kubernetes-driven scalability.
                         </p>
-                        <div class="flex space-x-4 pt-4">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">GO</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">JAVA</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">K8S</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-mono">DISTRIBUTED</span>
-                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="scroll-mt-24">
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">02. Stack_Trace (Experience)</h2>
+            <div class="space-y-12">
+                <div class="glass-card p-8 rounded-lg relative overflow-hidden group">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white uppercase">Cloudera, Inc.</h3>
+                            <p class="text-[var(--primary)] font-mono">Software Engineer | Jun 2020 - Present</p>
+                        </div>
+                        <div class="text-gray-500 font-mono text-sm mt-2 md:mt-0">Santa Clara, CA</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400 text-sm list-none">
+                        <li class="flex items-start">
+                            <span class="text-[var(--primary)] mr-2">>></span>
+                            Orchestrate and manage Cloudera's data warehouse products (Hive, Impala) in AWS and Azure using Kubernetes architecture.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[var(--primary)] mr-2">>></span>
+                            Engineered public APIs using Java and Swagger, enabling CDP CLI operations for machine users.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[var(--primary)] mr-2">>></span>
+                            Optimized Jenkins CI/CD pipelines for automated upgrade and functional testing using Python and Shell.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-lg relative group border-l-2 border-l-blue-500">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white uppercase">Harman International</h3>
+                            <p class="text-blue-500 font-mono">Software Engineering Intern | Summer 2019</p>
+                        </div>
+                        <div class="text-gray-500 font-mono text-sm mt-2 md:mt-0">Novi, MI</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400 text-sm list-none">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">>></span>
+                            Developed PC_LINT support tools in Python, improving debug efficiency by 70% for automotive projects.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">>></span>
+                            Optimized build systems and integrated Google Test (GTest) for cyclic redundancy check drivers.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="scroll-mt-24">
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">03. Academics (Education)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-lg border-t-2 border-t-[var(--primary)]">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-white uppercase">University of Michigan</h3>
+                        <p class="text-[var(--primary)] font-mono text-sm">M.S. in Computer Science & Engineering</p>
+                        <p class="text-gray-500 text-xs font-mono">Ann Arbor, MI | 2018 - 2020</p>
+                    </div>
+                    <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-4">Relevant Coursework</div>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Distributed Systems</span>
+                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Algorithms</span>
+                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Web Databases</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-lg border-t-2 border-t-blue-500">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-white uppercase">Wuhan University</h3>
+                        <p class="text-blue-500 font-mono text-sm">B.Eng. in Computer Science & Technology</p>
+                        <p class="text-gray-500 text-xs font-mono">Wuhan, China | 2014 - 2018</p>
+                    </div>
+                    <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-4">Accolades</div>
+                    <div class="text-xs text-gray-400 font-mono mt-2">Excellent Student Scholarships (Multiple Instances)</div>
                 </div>
             </div>
         </section>
 
         <!-- Skill Spectrum -->
         <section id="skills" class="scroll-mt-24">
-            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">02. Core_Dump</h2>
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">04. Core_Dump (Skills)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="glass-card p-8 rounded-xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 font-mono text-[8px] opacity-20">SYSTEM_HEALTH: 98%</div>
@@ -176,7 +251,7 @@
                         <div class="grid grid-cols-2 gap-y-3 text-[11px]">
                             <div class="text-gray-400"># Cloud: <span class="text-white">AWS/Azure/K8s</span></div>
                             <div class="text-gray-400"># DB: <span class="text-white">Hive/Impala/SQL</span></div>
-                            <div class="text-gray-400"># API: <span class="text-white">gRPC/REST/Swagger</span></div>
+                            <div class="text-gray-400"># Languages: <span class="text-white">Go/Java/Python/C++</span></div>
                             <div class="text-gray-400"># CI/CD: <span class="text-white">Jenkins/Shell</span></div>
                         </div>
                     </div>
@@ -186,45 +261,45 @@
 
         <!-- Repository (Projects) -->
         <section id="projects" class="scroll-mt-24">
-            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">03. Repositories</h2>
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">05. Repositories (Cloudera Projects)</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- MapReduce -->
+                <!-- CDW Orchestrator -->
                 <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-[var(--primary)]">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-[var(--primary)] text-xs font-mono">MASTER-BRANCH</span>
+                            <span class="text-[var(--primary)] text-xs font-mono">CLOUD-NATIVE</span>
                             <div class="flex space-x-1">
                                 <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">OLAP Cluster</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">A multi-threaded fault-tolerant cluster server built from scratch. Features Master-Worker heartbeat mechanism and job distribution.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">CDW Orchestrator</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Architected the deployment and management logic for Hive and Impala on AWS/Azure using Kubernetes and Golang. Ensured multi-tenant isolation and high scalability.</p>
                     </div>
-                    <div class="font-mono text-[10px] text-blue-400">C++ / Multi-threaded</div>
+                    <div class="font-mono text-[10px] text-blue-400">Golang / Kubernetes / Docker</div>
                 </div>
 
-                <!-- CDW -->
+                <!-- CDP Public APIs -->
                 <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-blue-500">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-blue-500 text-xs font-mono">PROD-DEPLOY</span>
+                            <span class="text-blue-500 text-xs font-mono">PUBLIC-SDK</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">CDW Orchestrator</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">Deploying Hive/Impala at scale. Automated upgrade testing and release management using Golang and Python.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">CDP Public APIs</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Implemented standard CDP public interfaces using Java and Swagger. Empowered machine users and the CDP CLI to perform automated DW operations at scale.</p>
                     </div>
-                    <div class="font-mono text-[10px] text-blue-400">Golang / Kubernetes</div>
+                    <div class="font-mono text-[10px] text-blue-400">Java / Swagger / REST</div>
                 </div>
 
-                <!-- API -->
+                <!-- CI/CD Infrastructure -->
                 <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-purple-500">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-purple-500 text-xs font-mono">OPEN-API</span>
+                            <span class="text-purple-500 text-xs font-mono">INFRA-AS-CODE</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Public CDP APIs</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">Swagger-first design for Cloudera's public interface. Enabling CLI-driven data warehouse operations via Java SDK.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">CI/CD Pipelines</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Developed a robust Jenkins infrastructure for automated functional and upgrade testing. Leveraged Python and Shell scripts to handle release management workflows.</p>
                     </div>
-                    <div class="font-mono text-[10px] text-blue-400">Java / REST / Swagger</div>
+                    <div class="font-mono text-[10px] text-blue-400">Python / Shell / Jenkins</div>
                 </div>
             </div>
         </section>
@@ -251,7 +326,7 @@
 
     <script>
         // 打字机效果
-        const textArray = ["Initializing system kernel...", "Connecting to distributed nodes...", "Compiling backend logic...", "Ready for new challenges."];
+        const textArray = ["Initializing system kernel...", "Connecting to distributed nodes...", "Compiling backend logic...", "Fetching academic credentials...", "Ready for deployment."];
         let i = 0, j = 0, current = "", isDeleting = false;
         
         function type() {
@@ -286,7 +361,7 @@
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Distributed', 'Kubernetes', 'Golang', 'Java', 'API Design', 'System Design'],
+                    labels: ['Distributed', 'Kubernetes', 'Golang', 'Java', 'Python', 'System Design'],
                     datasets: [{
                         label: 'Internal Score',
                         data: [95, 90, 92, 88, 85, 93],
