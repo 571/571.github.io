@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QINYUN | 个人简介</title>
+    <title>QINYUN | Backend Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
@@ -38,15 +38,6 @@
         ::-webkit-scrollbar-track { background: #f3f4f6; }
         ::-webkit-scrollbar-thumb { background: #C75146; border-radius: 3px; }
     </style>
-    <!-- Chosen Palette: "Paper & Ink" - 背景 #F9F7F2, 文字 #2D2D2D, 强调色 #C75146 (朱红) -->
-    <!-- Application Structure Plan: 
-         1. Hero: 大标题排版，确立个人品牌感。
-         2. About: 采用 Drop Cap 文学排版，叙述个人故事。
-         3. Skill Radar: 使用 Chart.js 雷达图展示能力分布。
-         4. Portfolio: 杂志网格布局展示代表作。
-         5. Contact: 简洁的页脚交互。
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
 <body class="bg-[#F9F7F2] text-[#2D2D2D] font-sans-sc antialiased">
 
@@ -55,31 +46,31 @@
         <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
             <div class="font-serif-sc font-bold text-2xl tracking-tighter">QINYUN.</div>
             <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest">
-                <a href="#about" class="hover:text-[#C75146] transition-colors">关于我</a>
-                <a href="#skills" class="hover:text-[#C75146] transition-colors">技能域</a>
-                <a href="#projects" class="hover:text-[#C75146] transition-colors">作品集</a>
-                <a href="#contact" class="hover:text-[#C75146] transition-colors">联络</a>
+                <a href="#about" class="hover:text-[#C75146] transition-colors">About</a>
+                <a href="#skills" class="hover:text-[#C75146] transition-colors">Expertise</a>
+                <a href="#projects" class="hover:text-[#C75146] transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-[#C75146] transition-colors">Contact</a>
             </div>
             <button class="md:hidden text-xl" onclick="toggleMenu()">&#9776;</button>
         </div>
         <div id="mobile-menu" class="hidden bg-white w-full p-6 border-b border-gray-200">
             <div class="flex flex-col space-y-4 font-bold text-sm uppercase">
-                <a href="#about" onclick="toggleMenu()">关于我</a>
-                <a href="#skills" onclick="toggleMenu()">技能域</a>
-                <a href="#projects" onclick="toggleMenu()">作品集</a>
-                <a href="#contact" onclick="toggleMenu()">联络</a>
+                <a href="#about" onclick="toggleMenu()">About</a>
+                <a href="#skills" onclick="toggleMenu()">Expertise</a>
+                <a href="#projects" onclick="toggleMenu()">Projects</a>
+                <a href="#contact" onclick="toggleMenu()">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- 主视觉区 -->
     <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-16">
-        <div class="mb-6 px-4 py-1 border border-[#2D2D2D] text-[10px] font-bold tracking-[0.3em] uppercase">Creative Soul & Digital Craftsman</div>
+        <div class="mb-6 px-4 py-1 border border-[#2D2D2D] text-[10px] font-bold tracking-[0.3em] uppercase">Scalable Systems & Backend Architecture</div>
         <h1 class="font-serif-sc text-6xl md:text-9xl font-bold mb-6 leading-none">
             QINYUN <span class="text-[#C75146] italic">WANG</span>
         </h1>
         <p class="max-w-xl text-lg text-gray-500 leading-relaxed font-serif-sc italic">
-            “在代码的逻辑中寻找诗意，在生活的琐碎里构筑美学。”
+            "Orchestrating robust infrastructures and designing efficient distributed systems."
         </p>
         <div class="mt-12 animate-bounce text-xl text-[#C75146] cursor-pointer" onclick="document.getElementById('about').scrollIntoView()">
             &#8595;
@@ -88,40 +79,38 @@
 
     <main class="max-w-6xl mx-auto px-6 space-y-32 mb-32">
 
-        <!-- 关于我 Section -->
+        <!-- About Section -->
         <section id="about" class="scroll-mt-24">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div class="md:col-span-4">
                     <div class="aspect-[3/4] bg-gray-200 relative group overflow-hidden border border-gray-100">
-                        <!-- 这里添加了你的头像图片 -->
                         <img src="./avatar.jpeg" alt="QINYUN's Avatar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <!-- 备用显示：如果图片加载失败则显示原来的样式 -->
                         <div class="hidden absolute inset-0 items-center justify-center">
-                            <span class="text-gray-400 font-serif-sc italic"></span>
+                            <span class="text-gray-400 font-serif-sc italic">[Backend Specialist]</span>
                         </div>
                         <div class="absolute inset-0 border-8 border-white/20 pointer-events-none"></div>
                     </div>
                 </div>
                 <div class="md:col-span-8 flex flex-col justify-center">
-                    <h2 class="font-serif-sc text-sm font-bold tracking-widest text-[#C75146] uppercase mb-4">Biography / 个人简述</h2>
+                    <h2 class="font-serif-sc text-sm font-bold tracking-widest text-[#C75146] uppercase mb-4">Professional Narrative</h2>
                     <div class="prose prose-lg text-gray-700">
                         <p class="drop-cap font-serif-sc text-xl leading-loose mb-8">
-                            你好，我是 QINYUN。我是一名热衷于探索数字边界的创造者。我专注于将复杂的技术逻辑转化为直观、感性且具有交互温度的用户体验。
+                            I am Qinyun, a Software Engineer specializing in backend infrastructure and distributed data warehouse solutions. With a Master's from University of Michigan, I currently focus on orchestrating enterprise-scale systems.
                         </p>
                         <p class="font-sans-sc font-light text-gray-600 mb-6">
-                            我深信优秀的软件应当像一本装帧精美的杂志：它不仅需要提供准确的信息，更需要通过排版、色彩与交互节奏，引导读者的情绪。在过去的实践中，我不断打磨自己在前端开发、数据可视化以及 UI/UX 设计方面的综合能力。
+                            My expertise lies in managing massive workloads using Golang and Java within Kubernetes architectures. At Cloudera, I bridge the gap between complex data products like Hive/Impala and cloud-native environments (AWS/Azure), ensuring seamless scalability and robust API integration.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 技能 Section -->
+        <!-- Expertise Section -->
         <section id="skills" class="scroll-mt-24">
             <div class="border-t border-gray-200 pt-12">
                 <div class="text-center mb-16">
-                    <h2 class="font-serif-sc text-4xl font-bold mb-4">能力象限</h2>
-                    <p class="text-gray-400 font-mono text-xs uppercase tracking-tighter">Skill Spectrum Analysis</p>
+                    <h2 class="font-serif-sc text-4xl font-bold mb-4">Core Competencies</h2>
+                    <p class="text-gray-400 font-mono text-xs uppercase tracking-tighter">Technical Stack Analysis</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -131,60 +120,60 @@
                             <canvas id="skillRadar"></canvas>
                         </div>
                     </div>
-                    <!-- Legend/Text -->
+                    <!-- Legend -->
                     <div class="space-y-8">
-                        <div class="group cursor-default" onmouseover="highlightSkill(0)">
+                        <div class="group cursor-default">
                             <h3 class="font-serif-sc text-xl font-bold flex items-center">
                                 <span class="w-2 h-2 bg-[#C75146] mr-3"></span>
-                                前端工程 (Frontend)
+                                Distributed Systems
                             </h3>
-                            <p class="text-sm text-gray-500 mt-2">精通 Astro, React, Vue 及现代构建工具。追求 0 JS 的极致加载性能。</p>
+                            <p class="text-sm text-gray-500 mt-2">Expertise in Hive, Impala, and MapReduce architectures. Skilled in building fault-tolerant Master-Worker clusters.</p>
                         </div>
-                        <div class="group cursor-default" onmouseover="highlightSkill(1)">
+                        <div class="group cursor-default">
                             <h3 class="font-serif-sc text-xl font-bold flex items-center">
                                 <span class="w-2 h-2 bg-black mr-3"></span>
-                                数据可视化 (Viz)
+                                Cloud Infrastructure
                             </h3>
-                            <p class="text-sm text-gray-500 mt-2">擅长使用 Canvas 与 WebGL 技术，将枯燥的数据转化为动态的视觉叙事。</p>
+                            <p class="text-sm text-gray-500 mt-2">Hands-on experience with K8s, Docker, AWS, and Azure. Building automated CI/CD pipelines via Jenkins.</p>
                         </div>
-                        <div class="group cursor-default" onmouseover="highlightSkill(2)">
+                        <div class="group cursor-default">
                             <h3 class="font-serif-sc text-xl font-bold flex items-center">
                                 <span class="w-2 h-2 bg-gray-400 mr-3"></span>
-                                交互设计 (UX)
+                                API & Backend Dev
                             </h3>
-                            <p class="text-sm text-gray-500 mt-2">推崇极简主义排版，关注视听反馈与微动效，提升用户的阅读愉悦感。</p>
+                            <p class="text-sm text-gray-500 mt-2">Designing RESTful APIs with Swagger/Java. Proficient in Golang for system-level orchestration.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 项目 Section -->
+        <!-- Projects Section -->
         <section id="projects" class="scroll-mt-24">
             <div class="border-t border-gray-200 pt-12">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                    <h2 class="font-serif-sc text-4xl font-bold">精选作品</h2>
-                    <p class="text-gray-400 font-mono text-xs mb-1">Selected Projects / 2023 - 2025</p>
+                    <h2 class="font-serif-sc text-4xl font-bold">Key Initiatives</h2>
+                    <p class="text-gray-400 font-mono text-xs mb-1">Selected Technical Projects</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-1 px-1 bg-gray-200">
                     <!-- Project 1 -->
                     <div class="bg-[#F9F7F2] p-10 group hover:bg-[#C75146] transition-all duration-500">
-                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">WEB DEVELOPMENT</p>
-                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">静谧博客 (Silence Blog)</h3>
+                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">DISTRIBUTED COMPUTING</p>
+                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">MapReduce Server</h3>
                         <p class="text-gray-600 group-hover:text-white/80 leading-relaxed mb-8">
-                            一个基于 Astro 的极简主义随笔博客，全站 Lighthous 评分 100。支持复杂的 MDX 交互式组件。
+                            Implemented a multi-threaded server for user-submitted jobs. Features fault-handling Master modules and heartbeat-synced Workers.
                         </p>
-                        <a href="#" class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white transition-all uppercase tracking-widest">查看详情 &rarr;</a>
+                        <span class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white uppercase tracking-widest">C++ / Multi-threading</span>
                     </div>
                     <!-- Project 2 -->
                     <div class="bg-[#F9F7F2] p-10 group hover:bg-[#2D2D2D] transition-all duration-500">
-                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">DATA DESIGN</p>
-                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">城市脉动 (City Pulse)</h3>
+                        <p class="font-mono text-[10px] text-gray-400 group-hover:text-white/60 mb-4 tracking-widest">INFRASTRUCTURE</p>
+                        <h3 class="font-serif-sc text-3xl font-bold mb-6 group-hover:text-white">CDP Public APIs</h3>
                         <p class="text-gray-600 group-hover:text-white/80 leading-relaxed mb-8">
-                            通过交互式地图展示城市人流迁移，利用原生 Canvas 实现每秒 60 帧的流畅粒子特效。
+                            Engineered Swagger specifications and implemented public Java APIs for Cloudera Data Platform, enabling CLI-based warehouse operations.
                         </p>
-                        <a href="#" class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white transition-all uppercase tracking-widest">查看详情 &rarr;</a>
+                        <span class="text-xs font-bold border-b border-black pb-1 group-hover:text-white group-hover:border-white uppercase tracking-widest">Java / REST / Swagger</span>
                     </div>
                 </div>
             </div>
@@ -192,49 +181,40 @@
 
     </main>
 
-    <!-- 底部联络 -->
+    <!-- Footer -->
     <footer id="contact" class="bg-[#2D2D2D] text-white py-24 px-6 text-center">
-        <h2 class="font-serif-sc text-4xl md:text-5xl font-bold mb-8">期待与您交流</h2>
+        <h2 class="font-serif-sc text-4xl md:text-5xl font-bold mb-8">Connect with Qinyun</h2>
         <div class="w-12 h-px bg-[#C75146] mx-auto mb-12"></div>
         <div class="flex flex-col space-y-4 mb-16">
-            <p class="text-gray-400 hover:text-[#C75146] transition-colors cursor-pointer text-xl font-serif-sc">hello@qinyun.studio</p>
+            <p class="text-gray-400 hover:text-[#C75146] transition-colors cursor-pointer text-xl font-serif-sc">qinyunw@umich.edu</p>
             <div class="flex justify-center space-x-6">
-                <a href="#" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">GitHub</a>
-                <a href="#" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">Dribbble</a>
-                <a href="#" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">Twitter</a>
+                <a href="https://github.com" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">GitHub</a>
+                <a href="https://linkedin.com" class="text-xs font-bold hover:text-[#C75146] uppercase tracking-widest">LinkedIn</a>
             </div>
         </div>
-        <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase">© 2026 QINYUN. ALL RIGHTS RESERVED.</p>
+        <p class="text-[10px] text-gray-600 font-mono tracking-widest uppercase">© 2026 QINYUN WANG. SANTA CLARA, CA.</p>
     </footer>
 
     <script>
-        // 移动端菜单切换
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // 初始化能力雷达图
         let skillChart;
         function initRadar() {
             const ctx = document.getElementById('skillRadar').getContext('2d');
-            
-            Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
-            
             skillChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['前端开发', '可视化', 'UI设计', '文案排版', '后端逻辑', '交互动效'],
+                    labels: ['Distributed Sys', 'Golang/Java', 'Cloud Native', 'CI/CD', 'API Design', 'Algorithm'],
                     datasets: [{
-                        label: '能力指数',
-                        data: [95, 88, 82, 90, 65, 85],
+                        label: 'Proficiency',
+                        data: [92, 95, 88, 85, 90, 80],
                         backgroundColor: 'rgba(199, 81, 70, 0.2)',
                         borderColor: '#C75146',
                         borderWidth: 2,
                         pointBackgroundColor: '#C75146',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#C75146'
                     }]
                 },
                 options: {
@@ -244,27 +224,17 @@
                         r: {
                             angleLines: { color: 'rgba(0,0,0,0.05)' },
                             grid: { color: 'rgba(0,0,0,0.05)' },
-                            pointLabels: { font: { size: 12 }, color: '#666' },
-                            ticks: { display: false, stepSize: 20 },
+                            pointLabels: { font: { size: 11 }, color: '#666' },
+                            ticks: { display: false },
                             suggestedMin: 0,
                             suggestedMax: 100
                         }
                     },
-                    plugins: {
-                        legend: { display: false }
-                    }
+                    plugins: { legend: { display: false } }
                 }
             });
         }
 
-        // 鼠标悬停时高亮图表（交互增强）
-        function highlightSkill(index) {
-            // 此处可添加图表更新逻辑，例如改变特定点的大小或颜色
-            // 为了演示，我们仅执行简单的重绘确认交互
-            skillChart.update();
-        }
-
-        // 页面载入初始化
         window.onload = function() {
             initRadar();
         };
