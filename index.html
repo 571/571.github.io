@@ -92,16 +92,21 @@
         <section id="about" class="scroll-mt-24">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div class="md:col-span-4">
-                    <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center relative group overflow-hidden border border-gray-100">
-                        <span class="text-gray-400 font-serif-sc italic"></span>
-                        <div class="absolute inset-0 border-8 border-white/20"></div>
+                    <div class="aspect-[3/4] bg-gray-200 relative group overflow-hidden border border-gray-100">
+                        <!-- 这里添加了你的头像图片 -->
+                        <img src="./avatar.jpeg" alt="QINYUN's Avatar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- 备用显示：如果图片加载失败则显示原来的样式 -->
+                        <div class="hidden absolute inset-0 items-center justify-center">
+                            <span class="text-gray-400 font-serif-sc italic"></span>
+                        </div>
+                        <div class="absolute inset-0 border-8 border-white/20 pointer-events-none"></div>
                     </div>
                 </div>
                 <div class="md:col-span-8 flex flex-col justify-center">
                     <h2 class="font-serif-sc text-sm font-bold tracking-widest text-[#C75146] uppercase mb-4">Biography / 个人简述</h2>
                     <div class="prose prose-lg text-gray-700">
                         <p class="drop-cap font-serif-sc text-xl leading-loose mb-8">
-                            你好，我是QINYUN。我是一名热衷于探索数字边界的创造者。我专注于将复杂的技术逻辑转化为直观、感性且具有交互温度的用户体验。
+                            你好，我是 QINYUN。我是一名热衷于探索数字边界的创造者。我专注于将复杂的技术逻辑转化为直观、感性且具有交互温度的用户体验。
                         </p>
                         <p class="font-sans-sc font-light text-gray-600 mb-6">
                             我深信优秀的软件应当像一本装帧精美的杂志：它不仅需要提供准确的信息，更需要通过排版、色彩与交互节奏，引导读者的情绪。在过去的实践中，我不断打磨自己在前端开发、数据可视化以及 UI/UX 设计方面的综合能力。
