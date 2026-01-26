@@ -12,6 +12,7 @@
             --primary: #00FF9C; /* 极客绿 */
             --bg-dark: #0A0A0B;
             --accent: #FF3E00; /* 警告红 */
+            --cloudera-purple: #A855F7; /* 科技紫 */
         }
         body {
             background-color: var(--bg-dark);
@@ -95,7 +96,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section: Terminal Style -->
+    <!-- Hero Section -->
     <header class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(var(--primary) 1px, transparent 1px); background-size: 40px 40px;"></div>
         
@@ -110,8 +111,8 @@
                 <p class="text-[var(--primary)] mb-2">$ systemctl status profile.service</p>
                 <p class="text-white text-4xl md:text-7xl font-black mb-6 uppercase">QINYUN WANG</p>
                 <div class="space-y-2 text-sm md:text-base text-gray-400">
-                    <p>> <span class="text-white">Role:</span> Senior Backend Software Engineer</p>
-                    <p>> <span class="text-white">Focus:</span> Distributed Systems / Cloud Infrastructure</p>
+                    <p>> <span class="text-white">Role:</span> Sr. Software Engineer @ Cloudera</p>
+                    <p>> <span class="text-white">Focus:</span> Cloud Orchestration / Distributed Systems</p>
                     <p>> <span class="text-white">Location:</span> Santa Clara, CA [37.3541° N, 121.9552° W]</p>
                     <p>> <span class="text-[var(--primary)] typing" id="terminal-text"></span></p>
                 </div>
@@ -137,10 +138,10 @@
                     <h2 class="font-mono text-[var(--primary)] text-xl mb-6">01. Whoami</h2>
                     <div class="space-y-6 text-gray-400 leading-relaxed text-lg font-light">
                         <p>
-                            I architect systems where <span class="text-white">logic meets scale</span>. My passion lies in solving complex backend challenges, from fine-tuning distributed data warehouses to orchestrating cloud-native clusters.
+                            I architect systems where <span class="text-white">deterministic logic meets massive scale</span>. Currently, I am mainly working on <span class="text-[var(--primary)] font-bold">Cloudera Data Warehouse (CDW)</span>, where I focus on transforming complex distributed workflows into resilient, fleet-wide management services.
                         </p>
                         <p>
-                            Currently at <span class="text-[var(--primary)] font-bold">Cloudera</span>, I focus on building robust infrastructures that handle enterprise-level workloads across AWS and Azure. I thrive at the intersection of Golang system programming and Kubernetes-driven scalability.
+                            From designing API/gRPC protocols to migrating async operations to Cadence workflows, I thrive on building <span class="text-white">high available</span> system across multi-cloud environments.
                         </p>
                     </div>
                 </div>
@@ -151,46 +152,65 @@
         <section id="experience" class="scroll-mt-24">
             <h2 class="font-mono text-[var(--primary)] text-xl mb-12">02. Stack_Trace (Experience)</h2>
             <div class="space-y-12">
-                <div class="glass-card p-8 rounded-lg relative overflow-hidden group">
+                <!-- Cloudera - Sr. SE -->
+                <div class="glass-card p-8 rounded-lg relative overflow-hidden group border-l-2 border-l-[var(--primary)]">
                     <div class="flex flex-col md:flex-row justify-between mb-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white uppercase">Cloudera, Inc.</h3>
-                            <p class="text-[var(--primary)] font-mono">Software Engineer | Jun 2020 - Present</p>
+                            <p class="text-[var(--primary)] font-mono">Sr. Software Engineer - CFM | Jan 2025 - Present</p>
                         </div>
                         <div class="text-gray-500 font-mono text-sm mt-2 md:mt-0">Santa Clara, CA</div>
                     </div>
                     <ul class="space-y-3 text-gray-400 text-sm list-none">
                         <li class="flex items-start">
                             <span class="text-[var(--primary)] mr-2">>></span>
-                            Orchestrate and manage Cloudera's data warehouse products (Hive, Impala) in AWS and Azure using Kubernetes architecture.
+                            <span class="text-white font-bold">Cluster Fleet Manager (CFM)</span>: Designed core-infra orchestration service for managing Long-Running Operations (LROs) across diverse Cloudera data services.
                         </li>
                         <li class="flex items-start">
                             <span class="text-[var(--primary)] mr-2">>></span>
-                            Engineered public APIs using Java and Swagger, enabling CDP CLI operations for machine users.
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-[var(--primary)] mr-2">>></span>
-                            Optimized Jenkins CI/CD pipelines for automated upgrade and functional testing using Python and Shell.
+                            API Surface Design: Developed robust gRPC protocols with strict idempotency for fleet-wide lifecycle management.
                         </li>
                     </ul>
                 </div>
 
+                <!-- Cloudera - SE -->
+                <div class="glass-card p-8 rounded-lg relative overflow-hidden group border-l-2 border-l-[var(--cloudera-purple)]">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white uppercase">Cloudera, Inc.</h3>
+                            <p class="text-[var(--cloudera-purple)] font-mono">Software Engineer - CDW | Jun 2020 - Present</p>
+                        </div>
+                        <div class="text-gray-500 font-mono text-sm mt-2 md:mt-0">Santa Clara, CA</div>
+                    </div>
+                    <ul class="space-y-3 text-gray-400 text-sm list-none">
+                        <li class="flex items-start">
+                            <span class="text-[var(--cloudera-purple)] mr-2">>></span>
+                            <span class="text-white font-bold">Cloudera Data Warehouse (CDW)</span>: Scalable OLAP platform on Kubernetes orchestrating high-performance query engines (Hive, Impala, Trino) across multi-cloud environments (AWS, Azure, On-prem).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[var(--cloudera-purple)] mr-2">>></span>
+                            High Availability: Migrated control plane to distributed Cadence workflows, designing "Reconciliation Loops" to eliminate single points of failure.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[var(--cloudera-purple)] mr-2">>></span>
+                            Infra Modernization: Directed zero-downtime migrations for CNI (Calico) and Istio Service Mesh (1.5 to 1.11+).
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Harman -->
                 <div class="glass-card p-8 rounded-lg relative group border-l-2 border-l-blue-500">
                     <div class="flex flex-col md:flex-row justify-between mb-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white uppercase">Harman International</h3>
-                            <p class="text-blue-500 font-mono">Software Engineering Intern | Summer 2019</p>
+                            <p class="text-blue-500 font-mono">Software Engineering Intern | Jun 2019 - Aug 2019</p>
                         </div>
                         <div class="text-gray-500 font-mono text-sm mt-2 md:mt-0">Novi, MI</div>
                     </div>
                     <ul class="space-y-3 text-gray-400 text-sm list-none">
                         <li class="flex items-start">
                             <span class="text-blue-500 mr-2">>></span>
-                            Developed PC_LINT support tools in Python, improving debug efficiency by 70% for automotive projects.
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-blue-500 mr-2">>></span>
-                            Optimized build systems and integrated Google Test (GTest) for cyclic redundancy check drivers.
+                            Automation: Built PC-Lint tools in Python boosting debug efficiency by 70% for MISRA automotive projects.
                         </li>
                     </ul>
                 </div>
@@ -207,22 +227,13 @@
                         <p class="text-[var(--primary)] font-mono text-sm">M.S. in Computer Science & Engineering</p>
                         <p class="text-gray-500 text-xs font-mono">Ann Arbor, MI | 2018 - 2020</p>
                     </div>
-                    <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-4">Relevant Coursework</div>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Distributed Systems</span>
-                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Algorithms</span>
-                        <span class="text-[10px] bg-white/5 px-2 py-1 rounded">Web Databases</span>
-                    </div>
                 </div>
-
                 <div class="glass-card p-8 rounded-lg border-t-2 border-t-blue-500">
                     <div class="mb-4">
                         <h3 class="text-xl font-bold text-white uppercase">Wuhan University</h3>
                         <p class="text-blue-500 font-mono text-sm">B.Eng. in Computer Science & Technology</p>
                         <p class="text-gray-500 text-xs font-mono">Wuhan, China | 2014 - 2018</p>
                     </div>
-                    <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-4">Accolades</div>
-                    <div class="text-xs text-gray-400 font-mono mt-2">Excellent Student Scholarships (Multiple Instances)</div>
                 </div>
             </div>
         </section>
@@ -232,27 +243,26 @@
             <h2 class="font-mono text-[var(--primary)] text-xl mb-12">04. Core_Dump (Skills)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="glass-card p-8 rounded-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 font-mono text-[8px] opacity-20">SYSTEM_HEALTH: 98%</div>
                     <div class="chart-container">
                         <canvas id="skillRadar"></canvas>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4 font-mono">
                     <div class="glass-card p-6 border-l-4 border-l-[var(--primary)]">
-                        <div class="text-2xl font-bold mb-1 text-white">99.9%</div>
-                        <div class="text-[10px] text-gray-500 uppercase">SLA Target</div>
+                        <div class="text-2xl font-bold mb-1 text-white">99.99%</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Availability Target</div>
                     </div>
                     <div class="glass-card p-6 border-l-4 border-l-blue-500">
-                        <div class="text-2xl font-bold mb-1 text-white">400ms</div>
-                        <div class="text-[10px] text-gray-500 uppercase">Avg Latency</div>
+                        <div class="text-2xl font-bold mb-1 text-white">LRO</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Orchestration Focus</div>
                     </div>
                     <div class="glass-card p-6 col-span-2">
                         <h4 class="text-[var(--primary)] text-xs mb-4 uppercase tracking-widest">Tech Stack</h4>
                         <div class="grid grid-cols-2 gap-y-3 text-[11px]">
-                            <div class="text-gray-400"># Cloud: <span class="text-white">AWS/Azure/K8s</span></div>
-                            <div class="text-gray-400"># DB: <span class="text-white">Hive/Impala/SQL</span></div>
-                            <div class="text-gray-400"># Languages: <span class="text-white">Go/Java/Python/C++</span></div>
-                            <div class="text-gray-400"># CI/CD: <span class="text-white">Jenkins/Shell</span></div>
+                            <div class="text-gray-400"># Systems: <span class="text-white">Kubernetes, Docker, Helm</span></div>
+                            <div class="text-gray-400"># Backend: <span class="text-white">Golang, Java, gRPC, Cadence</span></div>
+                            <div class="text-gray-400"># Cloud: <span class="text-white">AWS, Azure, Terraform</span></div>
+                            <div class="text-gray-400"># Observability: <span class="text-white">Prometheus, Grafana</span></div>
                         </div>
                     </div>
                 </div>
@@ -261,58 +271,53 @@
 
         <!-- Repository (Projects) -->
         <section id="projects" class="scroll-mt-24">
-            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">05. Repositories (Cloudera Projects)</h2>
+            <h2 class="font-mono text-[var(--primary)] text-xl mb-12">05. Repositories (Engineering Focus)</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- CDW Orchestrator -->
+                <!-- Fleet Manager -->
                 <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-[var(--primary)]">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-[var(--primary)] text-xs font-mono">CLOUD-NATIVE</span>
-                            <div class="flex space-x-1">
-                                <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                            </div>
+                            <span class="text-[var(--primary)] text-xs font-mono">NEW // CFM</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">CDW Orchestrator</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">Architected the deployment and management logic for Hive and Impala on AWS/Azure using Kubernetes and Golang. Ensured multi-tenant isolation and high scalability.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Fleet Manager</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Deterministic orchestration service for Long-Running Operations across Cloudera fleet. Built with Golang and gRPC for resilient stage re-execution.</p>
+                    </div>
+                    <div class="font-mono text-[10px] text-blue-400">Golang / gRPC / Protobuf</div>
+                </div>
+
+                <!-- CDW Content -->
+                <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-blue-500">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-blue-500 text-xs font-mono">SCALABLE DATA</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">CDW Platform</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Large-scale OLAP platform on Kubernetes. Orchestrates high-performance query engines (Hive, Impala, Trino) and catalogs across AWS, Azure, and On-prem environments.</p>
                     </div>
                     <div class="font-mono text-[10px] text-blue-400">Golang / Kubernetes / Docker</div>
                 </div>
 
-                <!-- CDP Public APIs -->
-                <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-blue-500">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-blue-500 text-xs font-mono">PUBLIC-SDK</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">CDP Public APIs</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">Implemented standard CDP public interfaces using Java and Swagger. Empowered machine users and the CDP CLI to perform automated DW operations at scale.</p>
-                    </div>
-                    <div class="font-mono text-[10px] text-blue-400">Java / Swagger / REST</div>
-                </div>
-
-                <!-- CI/CD Infrastructure -->
+                <!-- Public API -->
                 <div class="glass-card p-6 flex flex-col justify-between h-64 border-t-2 border-t-purple-500">
                     <div>
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-purple-500 text-xs font-mono">INFRA-AS-CODE</span>
+                            <span class="text-purple-500 text-xs font-mono">GENERAL SERVICE</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">CI/CD Pipelines</h3>
-                        <p class="text-xs text-gray-500 line-clamp-3">Developed a robust Jenkins infrastructure for automated functional and upgrade testing. Leveraged Python and Shell scripts to handle release management workflows.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Public API</h3>
+                        <p class="text-xs text-gray-500 line-clamp-3">Standardized lifecycle management APIs enabling programmatic access and third-party automation for diverse Cloudera data services.</p>
                     </div>
-                    <div class="font-mono text-[10px] text-blue-400">Python / Shell / Jenkins</div>
+                    <div class="font-mono text-[10px] text-blue-400">Java / Swagger / REST / CDP CLI</div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Ping Footer -->
+    <!-- Footer -->
     <footer id="contact" class="border-t border-white/10 bg-black py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="font-mono text-[var(--primary)] mb-8">ping -c 4 qinyun.wang</h2>
             <div class="glass-card p-8 rounded-lg inline-block text-left font-mono text-sm">
-                <p class="text-gray-500">64 bytes from 131-saratoga-ave: icmp_seq=1 ttl=64 time=0.042 ms</p>
-                <p class="text-gray-500">64 bytes from 131-saratoga-ave: icmp_seq=2 ttl=64 time=0.039 ms</p>
                 <p class="text-white mt-4">Connect with the architect:</p>
                 <div class="mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8">
                     <a href="mailto:qinyunw@umich.edu" class="hover:text-[var(--primary)] transition-colors underline">qinyunw@umich.edu</a>
@@ -320,28 +325,24 @@
                     <a href="https://linkedin.com/in/qinyunw" class="hover:text-[var(--primary)] transition-colors underline" target="_blank">linkedin.com/in/qinyunw</a>
                 </div>
             </div>
-            <p class="mt-16 text-[10px] text-gray-700 font-mono">ESTABLISHING SECURE CONNECTION... VERIFIED BY RSA-4096</p>
         </div>
     </footer>
 
     <script>
-        // 打字机效果
-        const textArray = ["Initializing system kernel...", "Connecting to distributed nodes...", "Compiling backend logic...", "Fetching academic credentials...", "Ready for deployment."];
+        // Typing Effect
+        const textArray = ["Initiating CFM protocols...", "Synchronizing fleet states...", "Compiling gRPC definitions...", "Optimizing reconciliation loops...", "System ready."];
         let i = 0, j = 0, current = "", isDeleting = false;
         
         function type() {
             const target = document.getElementById('terminal-text');
             if (!target) return;
-            
             if (i < textArray.length) {
                 if (!isDeleting && j <= textArray[i].length) {
                     current = textArray[i].substring(0, j++);
                 } else if (isDeleting && j >= 0) {
                     current = textArray[i].substring(0, j--);
                 }
-                
                 target.innerText = current;
-                
                 if (j === textArray[i].length + 1) {
                     isDeleting = true;
                     setTimeout(type, 2000);
@@ -355,16 +356,16 @@
             }
         }
 
-        // 初始化能力雷达图
+        // Radar Chart
         function initRadar() {
             const ctx = document.getElementById('skillRadar').getContext('2d');
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Distributed', 'Kubernetes', 'Golang', 'Java', 'Python', 'System Design'],
+                    labels: ['Distributed', 'Kubernetes', 'Golang', 'Orchestration', 'Java', 'Cloud Infra'],
                     datasets: [{
                         label: 'Internal Score',
-                        data: [95, 90, 92, 88, 85, 93],
+                        data: [98, 95, 96, 94, 90, 95],
                         backgroundColor: 'rgba(0, 255, 156, 0.1)',
                         borderColor: '#00FF9C',
                         borderWidth: 1,
@@ -397,10 +398,6 @@
             type();
             initRadar();
         };
-
-        function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
     </script>
 </body>
 </html>
